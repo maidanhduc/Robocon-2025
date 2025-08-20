@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ExternalProjectImportWizard">
+		<item key="WizardProjectsImportPage.STORE_NESTED_PROJECTS" value="true"/>
+		<item key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="D:\download\square_line\LVGL_L496_1\LVGL_L496"/>
+			<item value="E:\robot_F4\code_F4_update"/>
+			<item value="C:\Users\APC\Downloads\code_F4_update_later"/>
+			<item value="E:\robocon_2025\move_omni\Omni_f103rct6"/>
+			<item value="E:\stm32\RTOS\project_1"/>
+			<item value="E:\robocon_2025\Code_a_thang\Omni_f103rct6"/>
+			<item value="E:\robocon_2025\Code_a_thang\F103_RCT6_Mecanum"/>
+			<item value="E:\code_robotf4\main_f4"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
+</section>

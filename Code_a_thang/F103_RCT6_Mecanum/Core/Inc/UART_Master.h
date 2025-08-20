@@ -1,0 +1,80 @@
+/*
+ * UART_Master.h
+ *
+ *  Created on: Apr 13, 2025
+ *      Author: Admin
+ */
+
+#ifndef INC_UART_MASTER_H_
+#define INC_UART_MASTER_H_
+
+#include "main.h"
+
+#include "main.h"
+#include "string.h"
+#include "stdio.h"
+#include "stdarg.h"
+
+#define button_up 			((0x01 	& 	button) != 0)  // 0
+#define button_down			((0x02	&	button) != 0)  // 1
+#define button_right		((0x04	&	button) != 0)  // 2
+#define button_left			((0x08	&	button) != 0)  // 3
+#define button_r1			((0x20	&	button) != 0)  // 4
+#define button_l1			((0x10	&	button) != 0)  // 5
+#define button_l2			((0x40	&	button) != 0)  // 6
+#define	button_r2			((0x80	&	button) != 0)  // 7
+#define button_square		((0x400	&	button) != 0)  // 8
+#define button_triangle		((0x800	&	button) != 0)  // 9
+#define button_circle		((0x200	&	button) != 0)  // 10
+#define button_cross		((0x100	&	button) != 0)  // 11
+#define button_share		((0x2000 &	button) != 0) // 12
+#define button_options		((0x4000 &	button) != 0)  // 13
+#define button_l3			((0x1000 &	button) != 0)  // 14
+#define button_r3			((0x8000 &	button) != 0) // 15
+
+
+#define HIGH	1
+#define LOW		0
+
+extern UART_HandleTypeDef huart3;
+extern UART_HandleTypeDef huart4;
+extern UART_HandleTypeDef huart5;
+
+
+enum UART5_stages{
+	STAGE_NO_READ_COMPASS,
+	STAGE_READ_START,
+	STAGE_BYTE_H,
+	STAGE_BYTE_L,
+	STAGE_RESET_COMPASS
+};
+
+enum UART3_stages{ // tay cầm
+
+	STAGE_NO_READ,
+	STAGE_READ_BUTTON,
+	STAGE_READ_LX,
+	STAGE_READ_LY,
+	STAGE_READ_RX,
+	STAGE_READ_RY,
+	STAGE_DEBUG
+
+
+};
+
+extern UART3_stages uart3_stages;
+extern uint16_t button;
+extern int16_t LX,LY,RX,RY;
+
+
+
+void Controll_DC_UART(UART_HandleTypeDef* huart,uint8_t dir,uint8_t add_DC, uint8_t pwm_DC);
+
+int16_t compass();					// uart5
+
+void reset_compass();
+
+void ps4();
+
+
+#endif /* INC_UART_MASTER_H_ */

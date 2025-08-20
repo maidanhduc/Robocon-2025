@@ -1,0 +1,7 @@
+../Core/Src/Map_Robot.cpp:29:9:int32_t get_encoder(int32_t*, int32_t*, TIM_HandleTypeDef*, int16_t)	3
+../Core/Src/Map_Robot.cpp:44:6:void update_position_encoder(TIM_HandleTypeDef*, TIM_HandleTypeDef*)	1
+../Core/Src/Map_Robot.cpp:54:9:int32_t get_encoder_x()	1
+../Core/Src/Map_Robot.cpp:58:9:int32_t get_encoder_y()	1
+../Core/Src/Map_Robot.cpp:62:6:void update_popsition_map_from_encoder(TIM_HandleTypeDef*, TIM_HandleTypeDef*)	1
+../Core/Src/Map_Robot.cpp:77:9:int32_t get_robot_x_encoder()	1
+../Core/Src/Map_Robot.cpp:82:9:int32_t get_robot_y_encoder()	1

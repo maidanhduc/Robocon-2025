@@ -1,0 +1,107 @@
+/*
+ * Map_robot.cpp
+ *
+ *  Created on: Apr 24, 2025
+ *      Author: APC
+ */
+#include "Map_robot.h"
+
+int32_t get_encoder(int32_t * value,int32_t * level_count,TIM_HandleTypeDef * htim,int16_t encoder_limit){
+	int16_t count_current = __HAL_TIM_GET_COUNTER(htim);
+
+	if((*value) > encoder_limit || (*value) < - encoder_limit){
+		(*level_count) += count_current;
+		__HAL_TIM_SET_COUNTER(htim,0);
+		count_current = 0;
+	}
+
+	(*value) = (*level_count) + count_current;
+
+	return (*value);
+}
+int32_t get_speed(int32_t *cnt, int32_t *realspeed,int32_t * level_count,TIM_HandleTypeDef * htim){
+	static uint32_t time_last =0;
+	uint16_t period = 1000;
+	if(HAL_GetTick() - time_last >= period){
+		(*realspeed) = ((*cnt)*60)/ 10000;
+		 time_last = HAL_GetTick();
+		 __HAL_TIM_SET_COUNTER(htim,0);
+		 (*cnt) = 0;
+		 (*level_count) = 0;
+	}
+
+	return (*realspeed);
+}
+
+int32_t get_speedd(TIM_HandleTypeDef * htim,uint16_t limit_encoder,uint16_t Pule_per_rotate){
+	int32_t count_current = __HAL_TIM_GET_COUNTER(htim);
+	static int32_t level_count = 0,cnt;
+	static uint32_t last_timeup =0;
+	int32_t speed=0;
+	if (abs(cnt) > limit_encoder ){
+		level_count+= count_current;
+		__HAL_TIM_SET_COUNTER(htim,0);
+		count_current =0;
+	}
+	cnt = level_count + count_current;
+	if (HAL_GetTick() - last_timeup >= 500){
+		last_timeup = HAL_GetTick();
+		speed = (cnt*120)/Pule_per_rotate;
+		level_count =0;
+		cnt = 0;
+		__HAL_TIM_SET_COUNTER(htim,0);
+	}
+	return speed;
+
+}
+int32_t get_speedup(TIM_HandleTypeDef* htim, uint16_t pulses_per_rotation,
+                 uint16_t sample_period_ms, int16_t encoder_limit)
+{
+    // Biến static để lưu trữ giữa các lần gọi hàm
+    static int32_t level_count = 0;
+    static int32_t total_count = 0;
+    static uint32_t last_time = 0;
+    static int32_t last_speed = 0;
+
+    // Đọc giá trị encoder hiện tại (có xử lý dấu)
+    int16_t current_count = (int16_t)__HAL_TIM_GET_COUNTER(htim);
+
+    // Xử lý tràn encoder
+    if(abs(total_count) > encoder_limit) {
+        level_count += current_count;
+        __HAL_TIM_SET_COUNTER(htim, 0);
+        current_count = 0;
+    }
+
+    // Cập nhật tổng số xung
+    total_count = level_count + current_count;
+
+    // Kiểm tra chu kỳ lấy mẫu
+    uint32_t current_time = HAL_GetTick();
+    if(current_time - last_time >= sample_period_ms)
+    {
+        if(pulses_per_rotation > 0) // Tránh chia cho 0
+        {
+            // Tính RPM: (xung * 60000) / (xung/vòng * chu_kỳ_ms)
+            last_speed = (total_count * 60000) / (pulses_per_rotation * sample_period_ms);
+        }
+        else
+        {
+            last_speed = 0;
+        }
+
+        // Reset các giá trị
+        last_time = current_time;
+        __HAL_TIM_SET_COUNTER(htim, 0);
+        total_count = 0;
+        level_count = 0;
+
+        return last_speed;
+    }
+
+    // Chưa đủ chu kỳ lấy mẫu thì trả về giá trị cũ
+    return last_speed;
+}
+
+
+

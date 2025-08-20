@@ -1,0 +1,17 @@
+10:37:28 **** Build of configuration Debug for project F103_RCT6_Mecanum ****
+make -j16 all 
+arm-none-eabi-g++ "../Core/Src/Driver_Robot.cpp" -mcpu=cortex-m3 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xE -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Driver_Robot.d" -MT"Core/Src/Driver_Robot.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/Driver_Robot.o"
+arm-none-eabi-g++ -o "F103_RCT6_Mecanum.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\robocon_2025\Code_a_thang\F103_RCT6_Mecanum\STM32F103RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F103_RCT6_Mecanum.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: F103_RCT6_Mecanum.elf
+ 
+arm-none-eabi-size  F103_RCT6_Mecanum.elf 
+arm-none-eabi-objdump -h -S F103_RCT6_Mecanum.elf  > "F103_RCT6_Mecanum.list"
+   text	   data	    bss	    dec	    hex	filename
+  48580	    120	   3544	  52244	   cc14	F103_RCT6_Mecanum.elf
+Finished building: default.size.stdout
+ 
+Finished building: F103_RCT6_Mecanum.list
+ 
+
+10:37:33 Build Finished. 0 errors, 0 warnings. (took 4s.763ms)
+

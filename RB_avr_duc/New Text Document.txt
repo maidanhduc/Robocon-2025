@@ -1,0 +1,119 @@
+// motor pid de
+// motor 0
+#define m0 3
+#define d0 52
+// motor 1
+#define m1 4
+#define d1 53
+// motor 2
+#define m2 5
+#define d2 51
+// motor 3
+#define m3 6
+#define d3 49
+ class motor{
+  protected:
+    uint8_t m;
+    uint8_t d;
+  public:
+    motor(uint8_t ma, uint8_t da): m(ma), d(da){}
+    void pinSetup(){
+      pinMode(m, OUTPUT);
+      pinMode(d, OUTPUT);
+    }
+    void quaythuan(uint8_t speedd){
+      uint8_t speed = 255 - speedd;
+      if(speed == 2){
+        speed = 3;
+      }
+      digitalWrite(d,1);
+      analogWrite(m,speed);
+    }
+    void quaynghich(uint8_t speedd){
+      uint8_t speed = 255 - speedd;
+      if(speed == 2){
+        speed = 3;
+      }
+      digitalWrite(d,0);
+      analogWrite(d,speed);
+    }
+    void phanh(){
+      analogWrite(m,253);
+      digitalWrite(d,0);
+    }
+};
+class nor_motor {
+  protected:
+    unsigned char In1;
+    unsigned char In2;
+    unsigned char Pwm;
+  public:
+    nor_motor(unsigned char in1, unsigned char in2 ,unsigned char pwm){
+      In1 = in1;
+      In2 = in2;
+      Pwm = pwm;
+    }
+    void pinSetup(){
+      pinMode(In1,OUTPUT);
+      pinMode(In2,OUTPUT);
+      pinMode(Pwm,OUTPUT);
+      digitalWrite(In1,1);
+      digitalWrite(In2,1);
+    }
+    void turnRight(uint8_t speed){
+      digitalWrite(In1,1);
+      digitalWrite(In2,0);
+      analogWrite(Pwm,speed);
+    }
+    void turnLeft(uint8_t speed){
+      digitalWrite(In1,0);
+      digitalWrite(In2,1);
+      analogWrite(Pwm,speed);
+    }
+    void stop(){
+      analogWrite(Pwm,0);
+    }
+
+};
+#include "class.h"
+#include "mapping.h"
+// =================Di chuyển cơ bản====================//
+motor DC[4] ={motor(m0,d0),motor(m1,d1),
+              motor(m2,d2),motor(m3,d3)};
+/*
+
+*/
+void up(uint8_t v){
+  DC[0].quaythuan(v);
+  DC[1].quaynghich(v);
+  DC[2].quaythuan(v);
+  DC[3].quaynghich(v);
+}
+void down(uint8_t v){
+
+}
+void right(uint8_t v){
+
+}
+void left(uint8_t v){
+
+}
+void setup(){
+  motorPidSetup();
+  Serial3.begin(115200); // for ESP32
+  Serial2.begin(115200); // Compass
+  Serial1.begin(115200);
+  Serial.begin(115200); // for debug
+  Serial3.write('o');
+}
+void motorPidSetup(){
+  for( uint8_t i=0;i<4;i++){
+    DC[i].pinSetup();
+  }
+}
+void nor_motorSetup(){
+
+}
+void loop(){
+  up(80);
+}

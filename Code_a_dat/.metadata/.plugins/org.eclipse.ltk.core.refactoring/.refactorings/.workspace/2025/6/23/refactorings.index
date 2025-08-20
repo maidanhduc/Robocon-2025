@@ -1,0 +1,7 @@
+1749175264467	Delete resource 'lvgl_stm32/Drivers/lvgl'
+1749175425997	Delete resource 'lvgl_stm32/Drivers/lvgl-release-v8.3'
+1749175503058	Delete resource 'lvgl_stm32/Core/Inc/LCDController.h'
+1749175507317	Delete resource 'lvgl_stm32/Core/Inc/ili9341.h'
+1749175510589	Delete resource 'lvgl_stm32/Core/Src/ili9341.c'
+1749175513670	Delete resource 'lvgl_stm32/Core/Src/LCDController.c'
+1749188764567	Delete resource 'LVGL_L496'

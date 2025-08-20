@@ -1,0 +1,10 @@
+12:47:53 **** Incremental Build of configuration Debug for project lvgl_stm32 ****
+make -j16 all 
+arm-none-eabi-size  lvgl_stm32.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6776	     12	   1724	   8512	   2140	lvgl_stm32.elf
+Finished building: default.size.stdout
+ 
+
+12:47:58 Build Finished. 0 errors, 0 warnings. (took 4s.656ms)
+

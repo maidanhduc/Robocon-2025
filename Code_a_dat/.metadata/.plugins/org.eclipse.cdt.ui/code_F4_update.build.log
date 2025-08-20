@@ -1,0 +1,17 @@
+08:40:56 **** Incremental Build of configuration Debug for project code_F4_update ****
+make -j16 all 
+arm-none-eabi-g++ "../Core/Src/Map_robot.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Map_robot.d" -MT"Core/Src/Map_robot.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Map_robot.o"
+arm-none-eabi-g++ -o "code_F4_update.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\robot_F4\code_F4_update\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="code_F4_update.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: code_F4_update.elf
+ 
+arm-none-eabi-size  code_F4_update.elf 
+arm-none-eabi-objdump -h -S code_F4_update.elf  > "code_F4_update.list"
+   text	   data	    bss	    dec	    hex	filename
+  20988	     16	   2592	  23596	   5c2c	code_F4_update.elf
+Finished building: default.size.stdout
+ 
+Finished building: code_F4_update.list
+ 
+
+08:40:57 Build Finished. 0 errors, 0 warnings. (took 696ms)
+

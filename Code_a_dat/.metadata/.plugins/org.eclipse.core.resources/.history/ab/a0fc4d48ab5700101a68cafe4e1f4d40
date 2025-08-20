@@ -1,0 +1,24 @@
+/*
+ * Map_robot.h
+ *
+ *  Created on: Apr 24, 2025
+ *      Author: APC
+ */
+
+#ifndef INC_MAP_ROBOT_H_
+#define INC_MAP_ROBOT_H_
+#include <cstdint>
+#include "main.h"
+#include "math.h"
+
+extern int count_flag;
+int32_t get_encoder(int32_t * value,int32_t * level_count,TIM_HandleTypeDef * htim,int16_t encoder_limit);
+int32_t get_speed(int32_t *cnt, int32_t *realspeed,int32_t * level_count,TIM_HandleTypeDef * htim);
+int32_t get_speedd(TIM_HandleTypeDef * htim,uint16_t limit_encoder,uint16_t Pule_per_rotate);
+
+
+/*
+ * nhận vận tốc góc tử rap và pid chạy bám theo vận tốc đó
+ * gửi dữ liệu qua uart cho rap
+ */
+#endif /* INC_MAP_ROBOT_H_ */

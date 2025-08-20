@@ -1,0 +1,15 @@
+/*
+ * Map_robot.h
+ *
+ *  Created on: Apr 24, 2025
+ *      Author: APC
+ */
+
+#ifndef INC_MAP_ROBOT_H_
+#define INC_MAP_ROBOT_H_
+
+int32_t get_encoder(int32_t * value,int32_t * level_count,TIM_HandleTypeDef * htim,int16_t encoder_limit);
+
+
+
+#endif /* INC_MAP_ROBOT_H_ */

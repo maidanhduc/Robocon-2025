@@ -1,0 +1,4 @@
+../Core/Src/UART_Data.cpp:40:9:int16_t Compass()	16	static
+../Core/Src/UART_Data.cpp:61:6:void update_Angle_Robot()	16	static
+../Core/Src/UART_Data.cpp:70:6:void Reset_Angle()	16	static
+../Core/Src/UART_Data.cpp:87:6:void Ps4()	16	static

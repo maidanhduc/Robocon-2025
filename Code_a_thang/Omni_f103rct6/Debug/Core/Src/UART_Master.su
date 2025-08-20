@@ -1,0 +1,10 @@
+../Core/Inc/UART_Master.h:48:2:Info_position_robot::Info_position_robot(float, float, int16_t, bool)	24	static
+../Core/Src/UART_Master.cpp:37:6:)	16	static
+../Core/Src/UART_Master.cpp:82:6:void Data_map()	24	static
+../Core/Src/UART_Master.cpp:129:6:void ps3()	16	static
+../Core/Src/UART_Master.cpp:155:9:int16_t compass()	16	static
+../Core/Src/UART_Master.cpp:172:6:void reset_compass()	16	static
+../Core/Src/UART_Master.cpp:187:6:void HAL_UART_TxCpltCallback(UART_HandleTypeDef*)	16	static
+../Core/Src/UART_Master.cpp:266:6:void HAL_UART_RxCpltCallback(UART_HandleTypeDef*)	16	static
+../Core/Src/UART_Master.cpp:325:1:void __static_initialization_and_destruction_0(int, int)	24	static
+../Core/Src/UART_Master.cpp:325:1:cpp)	8	static

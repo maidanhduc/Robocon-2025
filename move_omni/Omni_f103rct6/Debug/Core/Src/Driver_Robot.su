@@ -1,0 +1,16 @@
+../Core/Inc/Driver_Robot.h:65:7:void Motor_PID::quaythuan(int16_t)	16	static
+../Core/Inc/Driver_Robot.h:76:7:void Motor_PID::quaynghich(int16_t)	16	static
+../Core/Src/Driver_Robot.cpp:19:9:int32_t constrains(int32_t, int32_t, int32_t)	24	static
+../Core/Src/Driver_Robot.cpp:25:8:double fConstrain(double, double, double)	24	static
+../Core/Src/Driver_Robot.cpp:33:6:void soft_speed(Variable, int16_t, uint32_t)	24	static
+../Core/Src/Driver_Robot.cpp:49:9:int16_t get_angle(int16_t)	16	static
+../Core/Src/Driver_Robot.cpp:57:9:int16_t PID_rotate(int16_t, int16_t)	40	static
+../Core/Src/Driver_Robot.cpp:81:6:void run_dc(uint8_t, int16_t)	16	static
+../Core/Src/Driver_Robot.cpp:142:9:int16_t move(int16_t, int16_t, int16_t, int16_t, uint32_t)	96	static
+../Core/Src/Driver_Robot.cpp:214:9:int16_t move_direction(int16_t, int16_t, int16_t, int16_t, uint32_t)	104	static
+../Core/Src/Driver_Robot.cpp:250:6:void rot_left(int16_t)	16	static
+../Core/Src/Driver_Robot.cpp:257:6:void rot_right(int16_t)	16	static
+../Core/Src/Driver_Robot.cpp:264:6:void stop()	8	static
+../Core/Src/Driver_Robot.cpp:276:6:void run_basic()	24	static
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/c++/12.3.1/cmath:475:5:constexpr typename __gnu_cxx::__enable_if<std::__is_integer<_Tp>::__value, double>::__type std::sqrt(_Tp) [with _Tp = int]	16	static
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/c++/12.3.1/cmath:155:5:constexpr typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::atan2(_Tp, _Up) [with _Tp = short int; _Up = short int]	24	static
